@@ -20,7 +20,7 @@
         if(!empty($_FILES['image']['tmp_name']))
         {
             // On redéfinie le nom de la photo en concaténant la réference saisie dans le formulaire avec le nom de la photo
-            $nom_photo = "$_POST[id_logement]-" . $_FILES['image']['name'];
+            $nom_photo = microtime() . "-" . $_FILES['image']['name'];
             echo $nom_photo .'<br>';
 
             $photo_bdd = URL . "photo/$nom_photo"; // on définie l'adresse URL de la photo sur le serveur, on ne conserve jamais la photo elle même dans la BDD, trop lourd pour le serveur, mais l'URL de la photo
@@ -133,7 +133,7 @@
     <h1 class="text-center">Ajout Logement</h1>
     
     <form method="POST" action="" class="container text-center" enctype="multipart/form-data">
-
+            
             <div class="form-group col-md">
             <label for="Nom">Titre</label>
             <input type="text" name="titre" class="form-control" id="Nom" placeholder="Titre">
@@ -200,7 +200,7 @@
 </div>
 
 <div class="container text-center mt-5">
-    <a href="<?= URL ?>affichage.php">Vers la liste des logements-></a>
+    <a href="<?= URL ?>index.php">Vers la liste des logements-></a>
 </div>
 
 
